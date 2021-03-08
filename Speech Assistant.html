@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech Assistant</title>
+    <style>
+        body 
+{
+background-image: url(https://images.unsplash.com/photo-1553356084-58ef4a67b2a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60);
+}
+        h1 {color: crimson;}
+        .talk{background-color: cyan;
+                border-radius: 20px;}
+        .content{color: cyan;}
+     </style>
+</head>
+<body>
+    <center>
+    <h1>Welcome Sir My name is Jack I am Saksham Agrawal's Assistant</h1>
+    <button class="talk">Talk</button>
+    <h3 class="content"></h3>
+    <script>
+        // The JavaScript Part Starts
+        const btn = document.querySelector('.talk');
+        const content = document.querySelector('.content');
+
+        const jack = [
+"hii welcome i am Jack and Saksham Agrawal made me"
+        ];
+     
+        const YouTube = [
+            'opening youtube'
+     ];
+
+     const WhatsApp = [
+            'opening WhatsApp'
+     ];
+     
+     const Twitter = [
+            'opening Twitter'
+     ];
+
+     const Instagram = [
+            'opening Instagram'
+     ];
+
+     const Snapchat = [
+            'opening Snapchat'
+     ];
+
+     const camera = [
+            'opening camera'
+     ];
+     
+     const Facebook = [
+            'opening Facebook'
+     ];
+
+     const hotstar = [
+            'opening hotstar'
+     ];
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        const recognition =  new SpeechRecognition();
+
+        recognition.onstart = function(){
+            console.log('How Can I Help You ?')
+        }
+        recognition.onresult = function (event) {
+            const current = event.resultIndex;
+
+            const transcript = event.results[current][0].transcript;
+            content.textContent = transcript;
+            readOutLoud(transcript);
+
+        };
+
+        btn.addEventListener('click', () =>{
+            recognition.start();
+        });
+
+
+        function readOutLoud(message){
+            const speech = new SpeechSynthesisUtterance();
+
+            speech.text = 'I am not able to understand';
+
+
+
+                if(message.includes("YouTube")){
+                     const finalText = 
+                    YouTube[Math.floor(Math.random()*YouTube.length)];
+                speech.text = finalText; 
+            window.open('https://www.youtube.com/')
+        }
+
+        
+
+        if(message.includes("WhatsApp")){
+             const finalText = 
+                    WhatsApp[Math.floor(Math.random()*WhatsApp.length)];
+                speech.text = finalText; 
+            window.open('https://www.whatsapp.com/')
+        }
+
+        
+
+        if(message.includes("Facebook")){
+             const finalText = 
+                    Facebook[Math.floor(Math.random()*Facebook.length)];
+                speech.text = finalText; 
+            window.open('https://www.Facebook.com/')
+        }
+
+        
+
+        if(message.includes("Twitter")){
+             const finalText = 
+                    Twitter[Math.floor(Math.random()*Twitter.length)];
+                speech.text = finalText; 
+            window.open('https://www.Twitter.com/')
+        }
+
+        
+
+        if(message.includes("Instagram")){
+             const finalText = 
+                    Instagram[Math.floor(Math.random()*Instagram.length)];
+                speech.text = finalText; 
+            window.open('https://www.Instagram.com/')
+        }
+
+        
+
+        if(message.includes("hotstar")){
+             const finalText = 
+                    hotstar[Math.floor(Math.random()*hotstar.length)];
+                speech.text = finalText; 
+            window.open('https://www.hotstar.com/')
+        }
+
+        
+
+        if(message.includes("Disney Plus hotstar")){
+             const finalText = 
+                    hotstar[Math.floor(Math.random()*hotstar.length)];
+                speech.text = finalText; 
+            window.open('https://www.hotstar.com/')
+        }
+
+        
+
+        if(message.includes("camera")){
+             const finalText = 
+                    camera[Math.floor(Math.random()*camera.length)];
+                speech.text = finalText; 
+            window.open('https://webcamtests.com/take-photo')
+        }
+
+        
+
+        if(message.includes("Snapchat")){
+             const finalText = 
+                    Snapchat[Math.floor(Math.random()*Snapchat.length)];
+                speech.text = finalText; 
+            window.open('https://www.Snapchat.com/')
+        }
+
+        if(message.includes("Jack")){
+             const finalText = 
+                    jack[Math.floor(Math.random()*jack.length)];
+                speech.text = finalText; 
+           // window.open('https://webcamtests.com/take-photo')
+        }
+
+      //  speech.volume = 1;
+            speech.rate = 1.1;
+            speech.pitch = 1;
+
+            window.speechSynthesis.speak(speech);
+
+        }
+
+       
+          
+    </script>
+    </center>
+</body>
+</html>
